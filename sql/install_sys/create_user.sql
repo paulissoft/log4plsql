@@ -9,7 +9,7 @@
 --
 -- history : who                 created     comment
 --     V1    Bertrand Caradec    15-MAY-08   Creation
---                                     
+--     V2    Gert-Jan Paulissen  13-DEC-25   Added                                 
 --
 -------------------------------------------------------------------
 /*
@@ -20,6 +20,8 @@
  * distribution in the LICENSE.txt file.  
  * see: <http://log4plsql.sourceforge.net>  */
 
+whenever sqlerror exit failure
+
 
 -- create a user
 set verify off
@@ -27,10 +29,10 @@ set verify off
 ACCEPT V_USER CHAR PROMPT 'Enter the user name:'
 ACCEPT V_PASSWORD CHAR PROMPT 'Enter the password:'
 
-ACCEPT V_TS CHAR DEFAULT 'USERS' PROMPT 'Enter default tablespace [USERS]:'
+ACCEPT V_TS CHAR DEFAULT 'DATA' PROMPT 'Enter default tablespace [DATA]:'
 
 CREATE USER &V_USER
-IDENTIFIED BY &V_PASSWORD
+IDENTIFIED BY "&V_PASSWORD"
 DEFAULT TABLESPACE &V_TS;
  
 GRANT CONNECT TO &V_USER;

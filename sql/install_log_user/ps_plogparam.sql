@@ -15,6 +15,9 @@ PACKAGE PLOGPARAM IS
 -- V3       Guillaume Moulard     05-AUG-03  Creation
 -- V3.2     Greg Woolsey          29-MAR-04  add MDC (Mapped Domain Context) Feature
 -- V3.3     Bertrand Caradec      11-APR-08  added for error back trace
+-- V4.1     Gert-Jan Paulissen    16-DEC-25  all DEFAULT output options
+--                                           to FALSE except
+--                                           for DEFAULT_LOG_TABLE 
 
 /*
  * Copyright (C) LOG4PLSQL project team. All rights reserved.
@@ -40,10 +43,10 @@ DEFAULT_LOG_TABLE     BOOLEAN              := TRUE;
 
 -- if DEFAULT_USE_LOG4J is TRUE log4j Log4JbackgroundProcess are necessary
 -- Causes log messages to be sent to a queue
-DEFAULT_USE_LOG4J     BOOLEAN              := TRUE;
+DEFAULT_USE_LOG4J     BOOLEAN              := FALSE;
 
 -- TRUE default value for Logging out off transactional limits
-DEFAULT_LOG_OUT_TRANS BOOLEAN              := TRUE;
+DEFAULT_LOG_OUT_TRANS BOOLEAN              := FALSE;
 
 -- if DEFAULT_LOG_ALERTLOG is true the log is written in alert.log file
 DEFAULT_LOG_ALERT     BOOLEAN              := FALSE;
